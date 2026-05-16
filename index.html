@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURORA GT-X | Luxury Car Configurator</title>
+  <meta name="description" content="AURORA GT-X premium luxury electric car configurator." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="container nav-wrap">
+      <a class="logo" href="#top" aria-label="AURORA home">AURORA</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="mobileMenu">
+        <a href="#overview">Overview</a>
+        <a href="#design">Design</a>
+        <a href="#configurator">Configurator</a>
+        <a href="#performance">Performance</a>
+        <a href="#interior">Interior</a>
+        <a href="#gallery">Gallery</a>
+      </nav>
+      <button class="btn btn-primary">Reserve Now</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="design">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Future Grand Touring</p>
+          <h1>AURORA GT-X</h1>
+          <p class="hero-sub">Electric luxury. Engineered for silence, speed and presence.</p>
+          <div class="hero-actions">
+            <a href="#configurator" class="btn btn-primary">Configure Yours</a>
+            <a href="#performance" class="btn btn-ghost">Explore Performance</a>
+          </div>
+          <div class="spec-mini">
+            <article><span>0-100 km/h</span><strong>2.8s</strong></article>
+            <article><span>Range</span><strong>720 km</strong></article>
+            <article><span>Power</span><strong>890 hp</strong></article>
+            <article><span>Top Speed</span><strong>320 km/h</strong></article>
+          </div>
+        </div>
+        <div class="hero-car-wrap reveal">
+          <div class="hero-glow"></div>
+          <div class="car-visual" id="heroCar" role="img" aria-label="AURORA GT-X visual placeholder">
+            <div class="car-body" id="carBody"></div>
+            <div class="car-window"></div>
+            <div class="wheel wheel-front" id="wheelFront"></div>
+            <div class="wheel wheel-back" id="wheelBack"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="overview">
+      <div class="container">
+        <h2>Designed to move quietly. Built to be remembered.</h2>
+        <p class="lead">AURORA GT-X combines sculpted aerodynamics with electric precision, delivering instant torque, imperceptible cabin noise and commanding road presence for every journey.</p>
+        <p class="lead">From city boulevards to alpine highways, adaptive intelligence continuously optimizes suspension, battery delivery and interior comfort to maintain a flawless grand touring experience.</p>
+        <div class="overview-cards">
+          <article class="glass card"><h3>⚡ Electric Performance</h3><p>High-output dual motor architecture with immediate response and controlled traction.</p></article>
+          <article class="glass card"><h3>🛋 Intelligent Comfort</h3><p>AI-calibrated cabin profiles, active noise control and predictive climate optimization.</p></article>
+          <article class="glass card"><h3>🌀 Aerodynamic Design</h3><p>Low-drag silhouette with active vents for efficiency, stability and visual drama.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="configurator">
+      <div class="container">
+        <h2>Craft your signature specification</h2>
+        <div class="config-grid">
+          <div class="glass config-visual">
+            <div class="config-car-stage">
+              <div class="car-visual car-large" id="configCar" role="img" aria-label="Configured AURORA GT-X preview">
+                <div class="car-body" id="configCarBody"></div>
+                <div class="car-window"></div>
+                <div class="wheel wheel-front" id="configWheelFront"></div>
+                <div class="wheel wheel-back" id="configWheelBack"></div>
+              </div>
+            </div>
+            <div class="audio-controls">
+              <button class="btn btn-ghost" id="playSound">Play Engine Sound</button>
+              <button class="btn btn-ghost" id="stopSound">Stop Sound</button>
+            </div>
+          </div>
+
+          <div class="config-controls">
+            <article class="glass option-group">
+              <h3>Body Color</h3>
+              <div class="color-options" id="colorOptions"></div>
+            </article>
+            <article class="glass option-group">
+              <h3>Wheels</h3>
+              <div class="chip-options" id="wheelOptions"></div>
+            </article>
+            <article class="glass option-group">
+              <h3>Ambient Light</h3>
+              <div class="chip-options" id="ambientOptions"></div>
+            </article>
+            <article class="glass option-group">
+              <h3>Drive Mode</h3>
+              <div class="chip-options" id="modeOptions"></div>
+            </article>
+            <article class="glass summary" id="summary">
+              <h3>Your Configuration</h3>
+              <ul>
+                <li><span>Model</span><strong>AURORA GT-X</strong></li>
+                <li><span>Body Color</span><strong id="sumColor"></strong></li>
+                <li><span>Wheels</span><strong id="sumWheels"></strong></li>
+                <li><span>Ambient Light</span><strong id="sumAmbient"></strong></li>
+                <li><span>Drive Mode</span><strong id="sumMode"></strong></li>
+                <li><span>Power</span><strong id="sumPower"></strong></li>
+                <li><span>0-100 km/h</span><strong id="sumAcceleration"></strong></li>
+                <li><span>Range</span><strong id="sumRange"></strong></li>
+                <li class="price"><span>Estimated Price</span><strong id="sumPrice"></strong></li>
+              </ul>
+              <div class="summary-actions">
+                <button class="btn btn-primary" id="saveConfig">Save Configuration</button>
+                <button class="btn btn-ghost" id="resetConfig">Reset</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section performance" id="performance">
+      <div class="container perf-grid">
+        <div>
+          <h2>Relentless performance. Refined delivery.</h2>
+          <p class="lead">Engineered as an electric grand tourer with dual-motor AWD, adaptive air suspension and advanced energy management for sustained high-speed confidence.</p>
+        </div>
+        <div class="perf-cards">
+          <article class="glass"><strong class="count" data-target="890" data-suffix=" hp">0 hp</strong><span>Peak Output</span></article>
+          <article class="glass"><strong class="count" data-target="2.8" data-suffix="s">0s</strong><span>0-100 km/h</span></article>
+          <article class="glass"><strong class="count" data-target="720" data-suffix=" km">0 km</strong><span>Max Range</span></article>
+          <article class="glass"><strong class="count" data-target="320" data-suffix=" km/h">0 km/h</strong><span>Top Speed</span></article>
+          <article class="glass"><strong>Dual Motor AWD</strong><span>Drivetrain</span></article>
+          <article class="glass"><strong>Adaptive Air Suspension</strong><span>Chassis</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="interior">
+      <div class="container">
+        <h2>A cabin shaped by silence.</h2>
+        <div class="interior-grid">
+          <div class="glass interior-visual">
+            <div class="ambient-strip" id="ambientStrip"></div>
+            <p>Precision-crafted surfaces, panoramic architecture and immersive audio built for executive calm.</p>
+          </div>
+          <div class="interior-features">
+            <article class="glass">hand-crafted materials</article>
+            <article class="glass">panoramic glass roof</article>
+            <article class="glass">32-speaker spatial audio</article>
+            <article class="glass">adaptive climate system</article>
+            <article class="glass">intelligent seat memory</article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+          <button class="gallery-item g1" data-title="Front View">Front View</button>
+          <button class="gallery-item g2" data-title="Side Profile">Side Profile</button>
+          <button class="gallery-item g3" data-title="Rear Design">Rear Design</button>
+          <button class="gallery-item g4" data-title="Interior">Interior</button>
+          <button class="gallery-item g5" data-title="Wheels">Wheels</button>
+          <button class="gallery-item g6" data-title="Night Mode">Night Mode</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta">
+      <div class="container glass cta-box">
+        <h2>Your next presence on the road starts here.</h2>
+        <div class="hero-actions">
+          <button class="btn btn-primary">Reserve Now</button>
+          <button class="btn btn-ghost" id="brochureBtn">Download Brochure</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><p class="logo">AURORA</p><p>Luxury electric grand touring.</p></div>
+      <nav>
+        <a href="#overview">Overview</a><a href="#configurator">Configurator</a><a href="#performance">Performance</a><a href="#gallery">Gallery</a>
+      </nav>
+      <div><p>Instagram · X · YouTube · LinkedIn</p><small>© 2026 AURORA Mobility. AURORA GT-X is a fictional concept vehicle created for UI demonstration.</small></div>
+    </div>
+  </footer>
+
+  <div class="modal" id="lightbox" aria-hidden="true">
+    <div class="modal-content glass">
+      <button class="modal-close" id="closeModal" aria-label="Close modal">×</button>
+      <h3 id="modalTitle"></h3>
+      <div class="modal-image" id="modalImage"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>
