@@ -34,6 +34,7 @@ let config = { ...defaults };
 
 const qs = (s) => document.querySelector(s);
 const qsa = (s) => [...document.querySelectorAll(s)];
+const slug = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 function formatPrice(v) { return `$${v.toLocaleString('en-US')}`; }
 function toast(msg) {
@@ -76,9 +77,22 @@ function applyConfig() {
   const ambient = options.ambient[config.ambient];
   const mode = options.modes[config.mode];
 
-  qs('#carBody').style.background = `linear-gradient(150deg, ${color.hex}, #2c3342)`;
-  qs('#configCarBody').style.background = `linear-gradient(150deg, ${color.hex}, #2c3342)`;
-  ['#wheelFront','#wheelBack','#configWheelFront','#configWheelBack'].forEach((id) => qs(id).style.background = wheel.style);
+  const carClass = `car-color-${slug(config.color)}`;
+  const wheelClass = `wheel-${slug(config.wheels.replace(/20|21|22/g, '').replace(/”/g, ''))}`;
+  qsa('.car-visual').forEach((carEl) => {
+    carEl.classList.remove(
+      'car-color-obsidian-black',
+      'car-color-arctic-white',
+      'car-color-crimson-red',
+      'car-color-liquid-silver',
+      'car-color-midnight-blue',
+      'wheel-aero-silver',
+      'wheel-carbon-blade',
+      'wheel-forged-black'
+    );
+    carEl.classList.add(carClass, wheelClass);
+    carEl.style.setProperty('--selected-paint', color.hex);
+  });
   qs('#ambientStrip').style.background = ambient.color;
   qs('#ambientStrip').style.boxShadow = `0 0 26px ${ambient.color}`;
 
