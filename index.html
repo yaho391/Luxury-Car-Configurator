@@ -32,22 +32,22 @@
   <main>
     <section class="hero section" id="design">
       <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Future Grand Touring</p>
-          <h1>AURORA GT-X</h1>
-          <p class="hero-sub">Electric luxury. Engineered for silence, speed and presence.</p>
-          <div class="hero-actions">
+        <div class="hero-copy">
+          <p class="eyebrow hero-sequence">Future Grand Touring</p>
+          <h1 class="hero-sequence">AURORA GT-X</h1>
+          <p class="hero-sub hero-sequence">Electric luxury. Engineered for silence, speed and presence.</p>
+          <div class="hero-actions hero-sequence">
             <a href="#configurator" class="btn btn-primary">Configure Yours</a>
             <a href="#performance" class="btn btn-ghost">Explore Performance</a>
           </div>
-          <div class="spec-mini">
+          <div class="spec-mini hero-sequence">
             <article><span>0-100 km/h</span><strong>2.8s</strong></article>
             <article><span>Range</span><strong>720 km</strong></article>
             <article><span>Power</span><strong>890 hp</strong></article>
             <article><span>Top Speed</span><strong>320 km/h</strong></article>
           </div>
         </div>
-        <div class="hero-car-wrap reveal">
+        <div class="hero-car-wrap hero-sequence">
           <div class="hero-glow"></div>
           <div class="car-visual" id="heroCar" role="img" aria-label="AURORA GT-X side profile">
             <div class="car-reflection"></div>
@@ -83,12 +83,19 @@
       </div>
     </section>
 
-    <section class="section" id="configurator">
+    <section class="section configurator-section" id="configurator">
       <div class="container">
-        <h2>Craft your signature specification</h2>
+        <div class="config-intro">
+          <p class="eyebrow">Atelier configurator</p>
+          <h2>Craft your signature specification</h2>
+        </div>
         <div class="config-grid">
-          <div class="glass config-visual">
-            <div class="config-car-stage">
+          <div class="config-visual">
+            <div class="config-car-stage showroom">
+              <div class="showroom-topline">
+                <span>AURORA GT-X</span>
+                <span id="stageMode">Comfort</span>
+              </div>
               <div class="car-visual car-large" id="configCar" role="img" aria-label="Configured AURORA GT-X preview">
                 <div class="car-reflection"></div>
                 <div class="car-shadow"></div>
@@ -106,6 +113,7 @@
                 <div class="wheel wheel-front" id="configWheelFront"><span></span></div>
                 <div class="stage-line"></div>
               </div>
+              <div class="showroom-floor"></div>
             </div>
             <div class="audio-controls">
               <button class="btn btn-ghost" id="playSound">Play Engine Sound</button>
@@ -113,25 +121,37 @@
             </div>
           </div>
 
-          <div class="config-controls">
-            <article class="glass option-group">
-              <h3>Body Color</h3>
-              <div class="color-options" id="colorOptions"></div>
-            </article>
-            <article class="glass option-group">
-              <h3>Wheels</h3>
-              <div class="chip-options" id="wheelOptions"></div>
-            </article>
-            <article class="glass option-group">
-              <h3>Ambient Light</h3>
-              <div class="chip-options" id="ambientOptions"></div>
-            </article>
-            <article class="glass option-group">
-              <h3>Drive Mode</h3>
-              <div class="chip-options" id="modeOptions"></div>
-            </article>
+          <div class="config-side">
+            <div class="glass config-controls">
+              <div class="panel-heading">
+                <span>Exterior and cabin</span>
+                <strong>Personalize</strong>
+              </div>
+              <article class="option-group">
+                <h3>Body Color</h3>
+                <div class="color-options" id="colorOptions"></div>
+              </article>
+              <article class="option-group">
+                <h3>Wheels</h3>
+                <div class="wheel-options" id="wheelOptions"></div>
+              </article>
+              <article class="option-group">
+                <h3>Ambient Light</h3>
+                <div class="ambient-options" id="ambientOptions"></div>
+              </article>
+              <article class="option-group">
+                <h3>Drive Mode</h3>
+                <div class="mode-options" id="modeOptions"></div>
+              </article>
+            </div>
             <article class="glass summary" id="summary">
-              <h3>Your Configuration</h3>
+              <div class="summary-head">
+                <div>
+                  <span>Order summary</span>
+                  <h3>Your Configuration</h3>
+                </div>
+                <strong id="sumPrice"></strong>
+              </div>
               <ul>
                 <li><span>Model</span><strong>AURORA GT-X</strong></li>
                 <li><span>Body Color</span><strong id="sumColor"></strong></li>
@@ -141,7 +161,6 @@
                 <li><span>Power</span><strong id="sumPower"></strong></li>
                 <li><span>0-100 km/h</span><strong id="sumAcceleration"></strong></li>
                 <li><span>Range</span><strong id="sumRange"></strong></li>
-                <li class="price"><span>Estimated Price</span><strong id="sumPrice"></strong></li>
               </ul>
               <div class="summary-actions">
                 <button class="btn btn-primary" id="saveConfig">Save Configuration</button>
