@@ -212,6 +212,9 @@ function applyConfig() {
   });
   qs('#ambientStrip').style.background = ambient.color;
   qs('#ambientStrip').style.boxShadow = `0 0 26px ${ambient.color}`;
+  qs('#ambientStrip').style.setProperty('--ambient-light', ambient.color);
+  qs('.cabin-scene')?.style.setProperty('--ambient-light', ambient.color);
+  if (qs('#interiorAmbientName')) qs('#interiorAmbientName').textContent = config.ambient;
 
   qs('#sumColor').textContent = config.color;
   qs('#sumWheels').textContent = config.wheels;
