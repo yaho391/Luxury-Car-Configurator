@@ -128,6 +128,7 @@ function normalizeConfig(value = {}) {
 }
 
 function pulseConfig() {
+  if (motionQuery.matches) return;
   [qs('#configCar'), qs('#summary')].forEach((el) => {
     el.classList.remove('config-pulse');
     void el.offsetWidth;
@@ -136,6 +137,7 @@ function pulseConfig() {
 }
 
 function pulsePaint() {
+  if (motionQuery.matches) return;
   qsa('.car-visual').forEach((el) => {
     el.classList.remove('paint-changing');
     void el.offsetWidth;
@@ -144,6 +146,7 @@ function pulsePaint() {
 }
 
 function pulseModeStats() {
+  if (motionQuery.matches) return;
   ['#sumPower', '#sumAcceleration', '#sumRange'].forEach((selector) => {
     const el = qs(selector);
     el.classList.remove('stat-changing');
@@ -154,6 +157,13 @@ function pulseModeStats() {
 
 function animatePrice(nextPrice) {
   const el = qs('#sumPrice');
+  if (motionQuery.matches) {
+    if (priceFrame) cancelAnimationFrame(priceFrame);
+    displayedPrice = nextPrice;
+    el.textContent = formatPrice(nextPrice);
+    return;
+  }
+
   const startPrice = displayedPrice || nextPrice;
   const start = performance.now();
   const duration = 420;
